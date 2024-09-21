@@ -20,14 +20,7 @@ pipeline {
                 jacoco()
                     }
              }
-        }
-        post{
-            always{
-                emailext body: "${env.BUILD_URL}\n${currentBuild.absoluteUrl}",
-                to: "always@foo.bar",
-                recipientProviders: [previous()], 
-                subject: "${currentBuild.currentResult}: Job_Name ${env.JOB_NAME} [${env.BUILD_NUMBER}]"
-            }    
-        }
 
+        }
+        
 }
